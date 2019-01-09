@@ -1,0 +1,29 @@
+{
+  "name": "sails-hook-watch",
+  "version": "0.0.2",
+  "description": "Sails JS hook to watch and reload controllers and models when changed.",
+  "main": "index.js",
+  "sails": {
+    "isHook": true
+  },
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "chokidar": "^2.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sails",
+    "hook",
+    "sails-hook",
+    "watch",
+    "reload",
+    "autoreload"
+  ],
+  "author": "Navicstein Rotciv <navicsteinrotciv@gmail.com>",
+  "license": "ISC"
+}
