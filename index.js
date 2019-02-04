@@ -74,7 +74,7 @@ module.exports = function(sails) {
         ignored: sails.config[this.configKey].ignored
       });
 
-      sails.log.debug(
+      sails.log.verbose(
         "sails-hook-autoreload: Autoreload watching: ",
         sails.config[this.configKey].dirs
       );
@@ -87,7 +87,7 @@ module.exports = function(sails) {
       watcher.on(
         "all",
         _.debounce(function(action, watchedPath, stats) {
-          sails.log.debug(
+          sails.log.verbose(
             "sails-hook-watch: Detected API change -- reloading controllers / models..."
           );
 
