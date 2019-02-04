@@ -64,7 +64,6 @@ module.exports = function(sails) {
       // Initialize the file watcher to watch controller and model dirs
       var chokidar = require("chokidar");
 
-      sails.log(sails.config[this.configKey].dirs);
       // Watch both the controllers and models directories
       var watcher = chokidar.watch(sails.config[this.configKey].dirs, {
         // Ignore the initial "add" events which are generated when Chokidar
