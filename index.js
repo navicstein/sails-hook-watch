@@ -117,7 +117,7 @@ module.exports = function(sails) {
 
             sails.hooks.orm.reload();
 
-            sails.log.info("\x1b[36m·•\x1b[0m Auto-realoading...");
+            sails.log.info("\x1b[36m·•\x1b[0m Auto-Realoaded ✔");
 
             // Reload helpers
             sails.hooks.helpers.reload(function() {
