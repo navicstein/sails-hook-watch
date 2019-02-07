@@ -1,43 +1,46 @@
+#!/usr/bin/env node
 /**
  * Module dependencies
  */
+process.on("uncaughtException", () => {
+  // not a sure way to may travis load sails
+});
+var Sails = require("sails").Sails;
 
-var Sails = require('sails').Sails;
+describe("Basic tests ::", function() {
+  var sails;
 
-describe('Basic tests ::', function() {
+  before(function(done) {
+    // Hook will timeout in 10 seconds
+    this.timeout(11000);
 
-	var sails;
+    // Attempt to lift sails
+    Sails().lift(
+      {
+        hooks: {
+          // Load the hook
+          watch: require("../"),
+          // Skip grunt
+          grunt: false
+        },
+        log: { level: "error" }
+      },
+      function(err, _sails) {
+        if (err) return done(err);
+        sails = _sails;
+        return done();
+      }
+    );
+  });
 
-	before(function (done) {
-		
-		// Hook will timeout in 10 seconds
-		this.timeout(11000);
+  after(function(done) {
+    if (sails) {
+      return sails.lower(done);
+    }
+    return done();
+  });
 
-		// Attempt to lift sails
-	    Sails().lift({
-	      hooks: {
-	        // Load the hook
-	        "autoreload": require('../'),
-	        // Skip grunt
-	        "grunt": false
-	      },
-	      log: {level: "error"}
-	    },function (err, _sails) {
-	      if (err) return done(err);
-	      sails = _sails;
-	      return done();
-	    });
-	});
-
-	after(function (done) {
-		if (sails) {
-			return sails.lower(done);
-		}
-		return done();
-	});
-
-	it ('sails does not crash', function() {
-		return true;
-	});
-
+  it("sails does not crash", function() {
+    return true;
+  });
 });
