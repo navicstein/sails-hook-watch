@@ -1,5 +1,9 @@
 Thanks for using [Sails](https://github.com/balderdashy/sails)!
 
+[![Build Status](https://travis-ci.com/navicstein/sails-hook-watch.svg?branch=master)](https://travis-ci.com/navicstein/sails-hook-watch)
+
+<br/>
+
 <img src="https://sailsjs.com/images/hero_squid.png"/>
 
 # sails-hook-watch
