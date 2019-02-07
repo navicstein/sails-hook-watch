@@ -2,8 +2,8 @@
 /**
  * Module dependencies
  */
-process.on("uncaughtException", () => {
-  // not a sure way to may travis load sails
+process.on("uncaughtException", function() {
+  // not a sure way to make travis load sails
 });
 var Sails = require("sails").Sails;
 
